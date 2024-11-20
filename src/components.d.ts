@@ -6,56 +6,124 @@
  */
 import { HTMLStencilElement, JSXBase } from "@stencil/core/internal";
 export namespace Components {
-    interface MyComponent {
-        /**
-          * The first name
-         */
-        "first": string;
-        /**
-          * The last name
-         */
-        "last": string;
-        /**
-          * The middle name
-         */
-        "middle": string;
+    interface MiContador {
+    }
+    interface MyCard {
+        "image": string;
+        "userName": string;
+    }
+    interface MyInput {
+        "value": string;
+    }
+    interface SearchWorld {
+        "searchText": string;
+    }
+    interface UserComponent {
     }
 }
+export interface SearchWorldCustomEvent<T> extends CustomEvent<T> {
+    detail: T;
+    target: HTMLSearchWorldElement;
+}
+export interface UserComponentCustomEvent<T> extends CustomEvent<T> {
+    detail: T;
+    target: HTMLUserComponentElement;
+}
 declare global {
-    interface HTMLMyComponentElement extends Components.MyComponent, HTMLStencilElement {
+    interface HTMLMiContadorElement extends Components.MiContador, HTMLStencilElement {
     }
-    var HTMLMyComponentElement: {
-        prototype: HTMLMyComponentElement;
-        new (): HTMLMyComponentElement;
+    var HTMLMiContadorElement: {
+        prototype: HTMLMiContadorElement;
+        new (): HTMLMiContadorElement;
+    };
+    interface HTMLMyCardElement extends Components.MyCard, HTMLStencilElement {
+    }
+    var HTMLMyCardElement: {
+        prototype: HTMLMyCardElement;
+        new (): HTMLMyCardElement;
+    };
+    interface HTMLMyInputElement extends Components.MyInput, HTMLStencilElement {
+    }
+    var HTMLMyInputElement: {
+        prototype: HTMLMyInputElement;
+        new (): HTMLMyInputElement;
+    };
+    interface HTMLSearchWorldElementEventMap {
+        "searchWorldNameSelected": string;
+    }
+    interface HTMLSearchWorldElement extends Components.SearchWorld, HTMLStencilElement {
+        addEventListener<K extends keyof HTMLSearchWorldElementEventMap>(type: K, listener: (this: HTMLSearchWorldElement, ev: SearchWorldCustomEvent<HTMLSearchWorldElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | AddEventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLSearchWorldElementEventMap>(type: K, listener: (this: HTMLSearchWorldElement, ev: SearchWorldCustomEvent<HTMLSearchWorldElementEventMap[K]>) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | EventListenerOptions): void;
+    }
+    var HTMLSearchWorldElement: {
+        prototype: HTMLSearchWorldElement;
+        new (): HTMLSearchWorldElement;
+    };
+    interface HTMLUserComponentElementEventMap {
+        "completeStretch": string;
+    }
+    interface HTMLUserComponentElement extends Components.UserComponent, HTMLStencilElement {
+        addEventListener<K extends keyof HTMLUserComponentElementEventMap>(type: K, listener: (this: HTMLUserComponentElement, ev: UserComponentCustomEvent<HTMLUserComponentElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | AddEventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLUserComponentElementEventMap>(type: K, listener: (this: HTMLUserComponentElement, ev: UserComponentCustomEvent<HTMLUserComponentElementEventMap[K]>) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | EventListenerOptions): void;
+    }
+    var HTMLUserComponentElement: {
+        prototype: HTMLUserComponentElement;
+        new (): HTMLUserComponentElement;
     };
     interface HTMLElementTagNameMap {
-        "my-component": HTMLMyComponentElement;
+        "mi-contador": HTMLMiContadorElement;
+        "my-card": HTMLMyCardElement;
+        "my-input": HTMLMyInputElement;
+        "search-world": HTMLSearchWorldElement;
+        "user-component": HTMLUserComponentElement;
     }
 }
 declare namespace LocalJSX {
-    interface MyComponent {
-        /**
-          * The first name
-         */
-        "first"?: string;
-        /**
-          * The last name
-         */
-        "last"?: string;
-        /**
-          * The middle name
-         */
-        "middle"?: string;
+    interface MiContador {
+    }
+    interface MyCard {
+        "image"?: string;
+        "userName"?: string;
+    }
+    interface MyInput {
+        "value"?: string;
+    }
+    interface SearchWorld {
+        "onSearchWorldNameSelected"?: (event: SearchWorldCustomEvent<string>) => void;
+        "searchText"?: string;
+    }
+    interface UserComponent {
+        "onCompleteStretch"?: (event: UserComponentCustomEvent<string>) => void;
     }
     interface IntrinsicElements {
-        "my-component": MyComponent;
+        "mi-contador": MiContador;
+        "my-card": MyCard;
+        "my-input": MyInput;
+        "search-world": SearchWorld;
+        "user-component": UserComponent;
     }
 }
 export { LocalJSX as JSX };
 declare module "@stencil/core" {
     export namespace JSX {
         interface IntrinsicElements {
-            "my-component": LocalJSX.MyComponent & JSXBase.HTMLAttributes<HTMLMyComponentElement>;
+            "mi-contador": LocalJSX.MiContador & JSXBase.HTMLAttributes<HTMLMiContadorElement>;
+            "my-card": LocalJSX.MyCard & JSXBase.HTMLAttributes<HTMLMyCardElement>;
+            "my-input": LocalJSX.MyInput & JSXBase.HTMLAttributes<HTMLMyInputElement>;
+            "search-world": LocalJSX.SearchWorld & JSXBase.HTMLAttributes<HTMLSearchWorldElement>;
+            "user-component": LocalJSX.UserComponent & JSXBase.HTMLAttributes<HTMLUserComponentElement>;
         }
     }
 }

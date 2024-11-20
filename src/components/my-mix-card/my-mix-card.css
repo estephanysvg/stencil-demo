@@ -1,0 +1,32 @@
+.card {
+  background-color: #ccc;
+  border-radius: 50px;
+  padding: 8px;
+  border: 1px solid transparent;
+  display: inline-block;
+}
+
+.my-card-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.btn-react {
+  background-color: blueviolet;
+  border: none;
+  border-radius: 20px;
+  color: aliceblue;
+  padding: 5px;
+  margin-bottom: 5px;
+}
+
+.btn-stencil {
+  margin-bottom: 5px;
+  background-color: brown;
+  border: none;
+  color: aliceblue;
+  border-radius: 20px;
+  padding: 5px;
+}
